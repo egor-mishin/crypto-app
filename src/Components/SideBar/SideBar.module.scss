@@ -1,0 +1,6 @@
+.sidebar {
+  grid-area: sidebar;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: 1fr 3fr 1fr;
+}
