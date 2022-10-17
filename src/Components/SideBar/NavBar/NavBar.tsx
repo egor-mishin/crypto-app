@@ -1,12 +1,14 @@
 import React, { FC } from 'react'
 import { routes } from '../routes'
-import { Link } from 'react-router-dom'
+import NavItem from './NavItem/NavItem'
+import { INavBarProps } from '../SideBar.props'
+import css from './NavBar.module.scss'
 
-const NavBar: FC = (): JSX.Element => {
+const NavBar: FC<INavBarProps> = (): JSX.Element => {
     return (
-        <nav>
-            {routes.map((r, i) => <li key={`${i}-"link"`}><Link to={Object.values(r)[0]}>{Object.keys(r)[0]}</Link>
-            </li>)}
+        <nav className={css.navigation}>
+            {routes.map((r, i) => <NavItem title={r.title} link={r.link}
+                                           key={`${i}-${r.title}`} icon={r.icon}/>)}
         </nav>
     )
 }

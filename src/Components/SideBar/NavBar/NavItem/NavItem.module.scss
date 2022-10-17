@@ -1,0 +1,18 @@
+@import "./src/Styles/variables";
+
+.icon{
+  padding:1rem;
+  background: $light-grey;
+  display: inline-block;
+  border-radius: .5rem;
+  margin-right: 2rem;
+}
+.link {
+ text-decoration: none;
+  font-family: $primary-font;
+  color: $black-base
+}
+
+.active {
+  color: $green-base;
+}

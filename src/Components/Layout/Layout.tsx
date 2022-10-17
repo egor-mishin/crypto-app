@@ -9,7 +9,9 @@ const Layout: FC<ILayoutProps> = ({ children }): JSX.Element => {
         <div className={css.container}>
             <Header />
             <SideBar/>
-            {children}
+            <main className={css.main}>
+                {children}
+            </main>
         </div>
     )
 }

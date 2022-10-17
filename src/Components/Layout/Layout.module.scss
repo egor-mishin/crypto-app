@@ -1,6 +1,7 @@
+@import "./src/Styles/variables";
 .container {
   display: grid;
-  grid-template-columns: auto 1fr minmax(320px, 1200px) auto;
+  grid-template-columns: auto 15rem minmax(20rem, 75rem) auto;
   grid-template-areas:
           '. sidebar header .'
           '. sidebar main .'
@@ -10,5 +11,8 @@
   max-width: 1980px;
   height: 70vh;
   margin: 5rem auto;
+}
 
+.main {
+  grid-area: main
 }
