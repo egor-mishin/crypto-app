@@ -1,9 +1,10 @@
-import React, {FC} from "react";
-import { IFooterProps } from "./Footer.props";
+import React, { FC } from 'react'
+import { IFooterProps } from './Footer.props'
+import css from './Footer.module.scss'
 
-const Footer:FC<IFooterProps> = () => {
+const Footer: FC<IFooterProps> = () => {
     return (
-        <footer>Footer</footer>
+        <footer className={css.footer}>Footer</footer>
     )
 }
 

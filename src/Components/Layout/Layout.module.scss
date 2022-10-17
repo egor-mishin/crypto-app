@@ -1,0 +1,12 @@
+.container {
+  display: grid;
+  grid-template-columns: auto 1fr minmax(320px, 1200px) auto;
+  grid-template-areas:
+          '. sidebar header .'
+          '. sidebar main .'
+          '. sidebar . .';
+  grid-template-rows: auto 1fr auto;
+  width: 90%;
+  max-width: 1980px;
+  margin: 5rem auto;
+}
