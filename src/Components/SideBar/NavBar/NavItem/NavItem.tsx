@@ -9,7 +9,7 @@ const NavItem: FC<INavItem> = ({link, title, icon}, ...props): JSX.Element => {
     return (
         <>
             <NavLink to={link} className={isActive ? `${css.active} ${css.link}` : css.link}>
-               <div className={css.icon}>
+               <div className={isActive ? `${css.active} ${css.icon}` : css.icon}>
                    <img
                        src={icon}
                        alt={title} />
