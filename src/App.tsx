@@ -5,7 +5,7 @@ import Dashboard from './Pages/Dashboard/Dashboard'
 import Profile from './Pages/Profile/Profile'
 import { useAppDispatch, useAppSelector } from './Hooks/rtk-hooks'
 import { useEffect } from 'react'
-import { getCoins } from './Store/ConsSlice/coinsSlice'
+import { getCoins } from './Store/CoinsSlice/coinsSlice'
 
 function App() {
     const dispatch = useAppDispatch()

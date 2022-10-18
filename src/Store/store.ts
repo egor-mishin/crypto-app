@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import  { coinsSlice } from './ConsSlice/coinsSlice'
+import  { coinsSlice } from './CoinsSlice/coinsSlice'
 
 
 const store = configureStore({
