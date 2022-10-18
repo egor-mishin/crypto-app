@@ -1,3 +1,5 @@
+@import "variables";
+
 :root {
   font-size: 16px;
 }
@@ -9,5 +11,9 @@
 }
 
 body {
-  font-size: 16px;
+  font-family: $secondary-font;
+}
+
+h1, h2, h3, h4 {
+  font-family: $primary-font;
 }

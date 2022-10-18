@@ -1,9 +1,22 @@
 import React, { FC } from 'react'
-import { IHomeProps } from './Dashboard.props'
+import { IDashboardProps } from './Dashboard.props'
+import { DataForWidget } from '../../Utils'
+import { Htag } from '../../Features'
+import CoinsWidget from './CoinsWidget/CoinsWidget'
+import { ICoin } from '../../Store/CoinsSlice/ConisSlice.interface'
 
-const Dashboard: FC<IHomeProps> = () => {
+const Dashboard: FC<IDashboardProps> = ({ coins }) => {
+
+    const coinsForWidget= DataForWidget<ICoin>(coins, 5)
+
     return (
-        <>Dashboard</>
+        <>
+            <Htag tag={'h1'}>Dashboard</Htag>
+            <CoinsWidget coinsForWidget={coinsForWidget}/>
+
+        </>
+
+
     )
 }
 

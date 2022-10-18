@@ -1,5 +1,7 @@
-import {ReactNode} from "react";
+import { ReactNode } from 'react'
 
 export interface ICardProps {
-            children: ReactNode
+    children: ReactNode
+    size: 's' | 'm' | 'l'
+    className?: string
 }

@@ -1,19 +1,20 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { options } from '../../Services/crypto-api-options'
-import { ICoinsData, ICoinsState } from './ConisSlice.interface'
+import { IMarketsState } from './Markets.interface'
 
 
 
-const initialState: ICoinsState = {
-    coins: [],
+
+const initialState: IMarketsState = {
+    markets: [],
     status: 'idle',
     error: null,
 }
 
-export const getCoinsData = createAsyncThunk('coinsData/getCoins', async (data, thunkAPI) => {
+export const getMarketsData = createAsyncThunk('marketsData/getCoins', async (data, thunkAPI) => {
     try {
-       const  response = await axios.request(options.coins)
+        const  response = await axios.request(options.markets)
         return response.data
     } catch (error) {
         if (error instanceof Error) {
@@ -23,24 +24,24 @@ export const getCoinsData = createAsyncThunk('coinsData/getCoins', async (data, 
 })
 
 export const coinsSlice = createSlice({
-    name: 'coinsData',
+    name: 'marketsData',
     initialState,
     reducers: {
-        getCoins: (state: ICoinsState, action) => {
-            state.coins = action.payload
+        getCoins: (state: IMarketsState, action) => {
+            state.markets = action.payload
 
         },
     },
     extraReducers(builder) {
         builder
-            .addCase(getCoinsData.pending, (state: ICoinsState) => {
+            .addCase(getMarketsData.pending, (state: IMarketsState) => {
                 state.status = 'loading'
             })
-            .addCase(getCoinsData.fulfilled, (state: ICoinsState, action: PayloadAction<ICoinsData>) => {
+            .addCase(getMarketsData.fulfilled, (state: IMarketsState, action: PayloadAction<any>) => {
                 state.status = 'success'
-                state.coins = action.payload.data.coins
+                state.markets = action.payload.data
             })
-            .addCase(getCoinsData.rejected, (state: ICoinsState, action: PayloadAction<any>) => {
+            .addCase(getMarketsData.rejected, (state: IMarketsState, action: PayloadAction<any>) => {
                 state.status = 'failed'
                 state.error = action.payload
             })

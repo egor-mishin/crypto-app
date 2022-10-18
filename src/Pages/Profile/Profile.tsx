@@ -1,10 +1,14 @@
 import React, { FC } from 'react'
 import { IProfileProps } from './Profile.props'
+import { Htag } from '../../Features'
 
-const Profile: FC<IProfileProps> = (): JSX.Element => {
+export const Profile: FC<IProfileProps> = (): JSX.Element => {
     return (
         <>
-            Profile
+            <Htag tag={'h1'}>Profile</Htag>
+            <div className='container'>
+
+            </div>
         </>
     )
 }
