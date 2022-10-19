@@ -1,7 +1,7 @@
 @import "./src/Styles/variables";
 .container {
   display: grid;
-  grid-template-columns: auto 15rem minmax(20rem, 75rem) auto;
+  grid-template-columns: auto 15rem minmax(20rem, 90rem) auto;
   grid-template-areas:
           '. sidebar header .'
           '. sidebar main .'

@@ -20,9 +20,9 @@ function App() {
     return <div className="App">
         <Layout>
             <Routes>
-                <Route  path="/" element={<Dashboard coins={coins}/>} />
+                <Route  path="/" element={<Dashboard coins={coins} title={'Dashboard'}/>} />
                 <Route  path="profile/*" element={<Profile />} />
-                <Route  path="coins/*" element={<Coins />} />
+                <Route  path="coins/*" element={<Coins coins={coins} title={'Coins'}/>} />
                 <Route  path="/markets/*" element={<Markets />} />
                 <Route  path="/news" element={<News />} />
             </Routes>

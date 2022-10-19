@@ -1,0 +1,28 @@
+@import "./src/Styles/variables";
+
+.imgContainer {
+  padding: .4rem;
+  border-radius: 1rem;
+  text-align: center;
+  vertical-align: center;
+  border: 3px solid;
+  display: inline-block;
+
+  img {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+.price {
+  font-size: 1.3rem;
+  font-weight: 800;
+  float: right;
+  margin-top: .8rem;
+  margin-left: .7rem;
+}
+
+.name {
+  font-size: .9rem;
+  margin-top: 1.1rem;
+}
