@@ -7,12 +7,12 @@ const CoinsWidget: FC<ICoinsWidget> = ({coinsForWidget}): JSX.Element => {
     return (
         <>
             <div className={css.border}>
-                <Htag tag={'h2'}>Coins</Htag>
+                <Htag tag={'h2'}>Top 5 coins</Htag>
                 <div className={css.coinsWidget}>
                     {
                         coinsForWidget.map(c => (
-                            <Card size={'s'} key={c.uuid}>
-                                <CoinCard {...c}/>
+                            <Card key={c.uuid}>
+                                <CoinCard {...c}  size={'s'}/>
                             </Card>)
                         )
                     }

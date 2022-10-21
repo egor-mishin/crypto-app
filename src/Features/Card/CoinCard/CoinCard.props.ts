@@ -4,4 +4,8 @@ export interface ICoinCardProps {
     name: string
     price: string
     symbol: string
+    rank: number
+    marketCap: string
+    change: string,
+    size: 's' | 'm' | 'l'
 }

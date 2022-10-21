@@ -14,6 +14,8 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js'
+import { Htag } from '../../index'
+import cn from 'classnames'
 
 ChartJS.register(
     CategoryScale,
@@ -25,7 +27,7 @@ ChartJS.register(
     Legend,
 )
 
-const CoinCard: FC<ICoinCardProps> = ({ color, iconUrl, name, price, symbol }): JSX.Element => {
+const CoinCard: FC<ICoinCardProps> = ({ color, iconUrl, name, price, symbol, rank, change, marketCap, size= 'm' }): JSX.Element => {
     const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
     const data = {
         labels: labels,
@@ -61,14 +63,27 @@ const CoinCard: FC<ICoinCardProps> = ({ color, iconUrl, name, price, symbol }): 
     }
 
     return (
-        <>
+        <div className={
+            cn(css.card, {
+                    [css.s]: size === 's',
+                    [css.m]: size === 'm',
+                    [css.l]: size === 'l',
+                },
+            )
+        }>
             <div style={{ borderColor: `${color ? color : '#000' }` }} className={css.imgContainer}>
                 <img src={iconUrl} alt={name} />
             </div>
+            <div className={css.details}>
+                <Htag tag={'h4'} className={css.name}>{rank}.{name} ({symbol})</Htag>
+                <p className={css.item}>Price: <span>{minifyNumber(parseFloat(price), parseFloat(price) > 0.5 ? 3 : 5)}</span></p>
+                <p className={css.item}>Market Cap: <span>{minifyNumber(parseFloat(marketCap), parseFloat(marketCap) > 0.5 ? 3 : 5)}</span></p>
+                <p className={css.item}>Change:<span>{change} %</span></p>
+
+            </div>
             {/*<Line data={data} options={options} />*/}
-            <p className={css.price}>{minifyNumber(parseFloat(price), 3)}</p>
-            <p className={css.name}>{name} ({symbol})</p>
-        </>
+
+        </div>
     )
 }
 

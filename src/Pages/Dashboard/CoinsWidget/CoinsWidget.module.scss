@@ -2,15 +2,8 @@
 
 .coinsWidget {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-column-gap: 2rem;
-  margin: 2rem 0;
-
-
-  img {
-    width: 3rem;
-    height: 3rem;
-  }
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  gap: 2rem;
 }
 
 .border {

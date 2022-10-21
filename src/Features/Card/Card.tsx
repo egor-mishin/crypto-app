@@ -1,19 +1,10 @@
 import React, { FC } from 'react'
 import { ICardProps } from './Card.props'
-import cn from 'classnames'
 import css from './Card.module.scss'
 
-const Card: FC<ICardProps> = ({ children, size= 'm' }, props): JSX.Element => {
+const Card: FC<ICardProps> = ({ children }, props): JSX.Element => {
     return (
-        <div className={
-            cn(css.card, {
-                    [css.s]: size === 's',
-                    [css.m]: size === 'm',
-                    [css.l]: size === 'l',
-                },
-            )
-        }
-
+        <div className={css.card}
              {...props}>
             {children}
         </div>

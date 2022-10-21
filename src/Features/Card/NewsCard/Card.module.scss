@@ -3,7 +3,19 @@
 .card {
   background-color: $dark-gray;
   color: $black-base;
-  padding: 1.2em;
+  padding: 2em;
   border-radius: .7rem;
 }
 
+.s {
+  width: 15rem;
+  height: 10rem;
+}
+
+.m {
+  width: 30rem;
+}
+
+.l {
+  width: 50rem;
+}
