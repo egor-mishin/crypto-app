@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 const NewsCard: FC<INewsProps> = ({title, url, source}, props): JSX.Element => {
     return (
-        <div
+        <div className={css.newsCard}
             {...props}>
             <Link to={url}>{title}</Link>
         </div>
