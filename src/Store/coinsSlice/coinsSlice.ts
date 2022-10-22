@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { options } from '../../Services/crypto-api-options'
-import { ICoinsData, ICoinsState } from './ConisSlice.interface'
+import { ICoinsData, ICoinsState } from './conisSlice.interface'
 
 
 
@@ -25,12 +25,7 @@ export const getCoinsData = createAsyncThunk('coinsData/getCoins', async (data, 
 export const coinsSlice = createSlice({
     name: 'coinsData',
     initialState,
-    reducers: {
-        getCoins: (state: ICoinsState, action) => {
-            state.coins = action.payload
-
-        },
-    },
+    reducers: {},
     extraReducers(builder) {
         builder
             .addCase(getCoinsData.pending, (state: ICoinsState) => {
@@ -48,4 +43,4 @@ export const coinsSlice = createSlice({
 })
 
 
-export default coinsSlice
+export default coinsSlice.reducer

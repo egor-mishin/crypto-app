@@ -3,7 +3,7 @@ import { IOptionsAPI } from './api-options.interface'
 export const options: IOptionsAPI = {
     coins: {
         method: 'GET',
-        url: `${process.env.REACT_APP_BASE_URL}/coins`,
+        url: `${process.env.REACT_APP_COINS_BASE_URL}/coins`,
         params: {
             referenceCurrencyUuid: 'yhjMzLPhuIDl',
             timePeriod: '24h',
@@ -22,7 +22,7 @@ export const options: IOptionsAPI = {
 
     markets: {
         method: 'GET',
-        url: `${process.env.REACT_APP_BASE_URL}/coin/Qwsogvtv82FCd/markets`,
+        url: `${process.env.REACT_APP_COINS_BASE_URL}/coin/Qwsogvtv82FCd/markets`,
         params: {
             referenceCurrencyUuid: 'yhjMzLPhuIDl',
             timePeriod: '24h',
@@ -38,4 +38,23 @@ export const options: IOptionsAPI = {
 
         },
     },
+
+    news: {
+        method: 'GET',
+        url: `${process.env.REACT_APP_NEWS_BASE_URL}/news`,
+        headers: {
+            'X-RapidAPI-Key': `${process.env.REACT_APP_API_KEY}`,
+            'X-RapidAPI-Host': 'crypto-news-live3.p.rapidapi.com'
+    }
+    },
+
+    globalStats: {
+        method: 'GET',
+        url: `${process.env.REACT_APP_COINS_BASE_URL}/stats`,
+        params: { referenceCurrencyUuid: 'yhjMzLPhuIDl' },
+        headers: {
+            'X-RapidAPI-Key': `${process.env.REACT_APP_API_KEY}`,
+            'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
+        }
+    }
 }

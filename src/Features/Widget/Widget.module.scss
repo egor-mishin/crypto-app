@@ -1,13 +1,23 @@
-@import "./src/Styles/variables";
+@import "../../Styles/variables";
 
-.coinsWidget {
+.coins {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
   gap: 2rem;
 }
 
+.news {
+  width: 50rem;
+}
+
+.stats {
+  width: 31rem;
+}
+
+
 .border {
   border: 2px solid $light-grey;
   padding: 1.5rem;
   border-radius: 1rem;
+  margin-bottom: 3rem;
 }

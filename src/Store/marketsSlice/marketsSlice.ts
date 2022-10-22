@@ -1,8 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { options } from '../../Services/crypto-api-options'
-import { IMarketsState } from './Markets.interface'
-
+import { IMarketsState } from './marketsSlice.interface'
 
 
 
@@ -14,7 +13,7 @@ const initialState: IMarketsState = {
 
 export const getMarketsData = createAsyncThunk('marketsData/getCoins', async (data, thunkAPI) => {
     try {
-        const  response = await axios.request(options.markets)
+        const response = await axios.request(options.markets)
         return response.data
     } catch (error) {
         if (error instanceof Error) {
@@ -26,12 +25,7 @@ export const getMarketsData = createAsyncThunk('marketsData/getCoins', async (da
 export const coinsSlice = createSlice({
     name: 'marketsData',
     initialState,
-    reducers: {
-        getCoins: (state: IMarketsState, action) => {
-            state.markets = action.payload
-
-        },
-    },
+    reducers: {},
     extraReducers(builder) {
         builder
             .addCase(getMarketsData.pending, (state: IMarketsState) => {

@@ -1,4 +1,4 @@
-import { ICoin } from '../../Store/CoinsSlice/ConisSlice.interface'
+import { ICoin } from '../../Store/coinsSlice/conisSlice.interface'
 
 export interface ICoinsProps {
     coins: ICoin[]

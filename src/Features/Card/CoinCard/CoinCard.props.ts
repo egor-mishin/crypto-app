@@ -1,4 +1,5 @@
 export interface ICoinCardProps {
+    uuid: string
     color: string
     iconUrl: string
     name: string

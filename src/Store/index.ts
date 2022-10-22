@@ -1,2 +1,2 @@
-export  { default as CoinsSlice} from './CoinsSlice/coinsSlice'
-export  { default as MarketsSlice} from './CoinsSlice/coinsSlice'
+export  { default as CoinsSlice} from './coinsSlice/coinsSlice'
+export  { default as MarketsSlice} from './coinsSlice/coinsSlice'

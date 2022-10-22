@@ -16,6 +16,7 @@ import {
 } from 'chart.js'
 import { Htag } from '../../index'
 import cn from 'classnames'
+import { Link } from 'react-router-dom'
 
 ChartJS.register(
     CategoryScale,
@@ -27,7 +28,7 @@ ChartJS.register(
     Legend,
 )
 
-const CoinCard: FC<ICoinCardProps> = ({ color, iconUrl, name, price, symbol, rank, change, marketCap, size= 'm' }): JSX.Element => {
+const CoinCard: FC<ICoinCardProps> = ({ color, iconUrl, name, price, symbol, rank, change, marketCap, size= 'm' , uuid}): JSX.Element => {
     const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
     const data = {
         labels: labels,
