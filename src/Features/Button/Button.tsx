@@ -6,7 +6,7 @@ import css from './Button.module.scss'
 const Button: FC<IButtonProps> = ({ children, size = 's', kind, click, params }, props): JSX.Element => {
     return (
         <button
-            onClick={(() => click && click({...params}))}
+            onClick={(() => click && click({params}))}
             className={
                 cn(css.button, {
                     [css.regular]: kind === 'regular',
