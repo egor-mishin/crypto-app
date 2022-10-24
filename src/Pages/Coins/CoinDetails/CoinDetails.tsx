@@ -5,8 +5,8 @@ import { ICoinProps } from './Coin.props'
 import { data, options } from '../../../Utils/charts'
 import { Line } from 'react-chartjs-2'
 import { useAppDispatch, useAppSelector } from '../../../Hooks/rtk-hooks'
-import { getCoinData } from '../../../Store/coinSlice/coinSlice'
 import { useParams } from 'react-router-dom'
+import { getCoinData } from '../../../Store/coinSlice/coinSlice'
 
 const CoinDetails: FC<ICoinProps> = (): JSX.Element => {
 
