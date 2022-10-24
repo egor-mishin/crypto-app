@@ -8,11 +8,6 @@ export const routes: IRoutes[] = [
         icon: dashboard,
     },
     {
-        title: 'Profile',
-        link: 'profile',
-        icon: profile,
-    },
-    {
         title: 'Coins',
         link: 'coins',
         icon: mycoins,

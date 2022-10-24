@@ -1,10 +1,10 @@
-import React, {FC} from "react"
-import {IAvatarProps} from "./Avarar.props";
+import React, { FC } from 'react'
+import icon from './Assets/avatar.svg'
 
-const Avatar: FC<IAvatarProps> = (): JSX.Element => {
+const Avatar: FC<{picture: string}> = ({picture}): JSX.Element => {
     return (
         <>
-            Avatar
+            <img src={picture ? picture : icon} alt='Avatar'  width={35} height={35}/>
         </>
     )
 }

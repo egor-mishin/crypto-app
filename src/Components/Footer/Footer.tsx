@@ -1,8 +1,7 @@
 import React, { FC } from 'react'
-import { IFooterProps } from './Footer.props'
 import css from './Footer.module.scss'
 
-const Footer: FC<IFooterProps> = () => {
+const Footer: FC = () => {
     return (
         <footer className={css.footer}>
             <svg width="22" height="36" viewBox="0 0 22 36" fill="none" xmlns="http://www.w3.org/2000/svg">
