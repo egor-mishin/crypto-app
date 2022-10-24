@@ -3,16 +3,34 @@
 
 
 ### App description:
+Simple crypto news platform for everyone
 
-- **Site:** [egormishin.com](https://egormishin.com/)
-- **Email:** em@egormishin.com
-- **Telegram:** [@egor_mishin](https://t.me/egor_mishin)
-- **LinkedIn:** [Egor Mishin](https://www.linkedin.com/in/egormishin/)
 
 ### 🛠 Tech stack:
+React/TypeScript, Redux-toolkit, RestfulAPI, Chart.js, Auth0
 
-
-
-### 📚 App development plan:
+### 📚 App structure:
 - Main layouts
   - Dashboard 
+    - Statistics (implemented)
+    - Top 5 coins
+    - News 
+  - Coins
+    - coins (implemented)
+    - search
+    - pagination
+  - Markets
+    -  news
+    - search
+    - pagination
+  - News
+    - news
+    - search
+    - pagination
+  - Coin detail page
+    - page (implemented)
+  - Profile 
+    - General info 
+    - Favorite coins
+    - Smart contracts
+  - NFS Market
