@@ -8,6 +8,7 @@
   border: 3px solid;
   display: inline-block;
 }
+
 .name {
   line-height: 1.5;
   margin-bottom: .5rem;
@@ -36,6 +37,7 @@
     width: 8.5rem;
     display: inline-block;
     vertical-align: top;
+    min-height: 8rem;
   }
 
   .name {

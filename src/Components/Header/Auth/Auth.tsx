@@ -6,6 +6,7 @@ import arrow from './Assets/arrow.svg'
 import cn from 'classnames'
 import { Link } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
+import { Button } from '../../../Features'
 
 const Auth: FC = (): JSX.Element => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -16,26 +17,34 @@ const Auth: FC = (): JSX.Element => {
         setIsOpen(!isOpen)
     }
 
+
     return (
-        <div className={css.auth}>
+        <div className={cn(css.auth, {
+            [css.borderBottom]: !isOpen
+        }) }>
             {
                 !isAuthenticated &&
-                <button onClick={() => loginWithRedirect()}>Log In</button>
+                <Button click={loginWithRedirect}>Log In</Button>
 
             }
             {
                 isAuthenticated && (
                     <>
-                        <button onClick={onToggleMenu}>
-                            <Avatar picture={ user?.picture} />
+                        <Button click={onToggleMenu}>
+                            <Avatar picture={user?.picture} />
                             {user?.name ? user.name : 'User name'} <img src={arrow} alt='arrow' width={15} height={15}
-                                                                       className={isOpen ? css.rotate : ''} />
-                        </button>
+                                                                        className={isOpen ? css.rotate : ''} />
+                        </Button>
                         <ul className={cn(css.authMenu, {
                             [css.visible]: isOpen,
                         })}>
-                            <li><Link to={'/profile'}>Profile</Link></li>
-                            <li><button onClick={() => logout({ returnTo: window.location.origin })}>Log Out</button></li>
+                            <li>
+                                <Button kind={'auth'}>
+                                    <Link to={'/profile'}>Profile</Link>
+                                </Button>
+                            </li>
+                            <li><Button kind={'auth'} click={logout} params={{ returnTo: window.location.origin }}>Log
+                                Out</Button></li>
                         </ul>
                     </>
                 )

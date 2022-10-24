@@ -1,29 +1,36 @@
+@import 'src/Styles/variables';
 .auth {
   display: flex;
   align-items: center;
   position: relative;
+
+  border-top: 2px solid $light-grey;
+  border-left: 2px solid $light-grey;
+  border-right: 2px solid $light-grey;
+  border-radius: .5rem .5em 0 0;
 
   button {
     display: flex;
     gap: .5rem;
     align-items: center;
     justify-content: space-between;
-    margin-left: .7rem;
-    font-size: 1rem;
-    border: none;
-    background: transparent;
-    cursor: pointer;
   }
   .authMenu {
     position: absolute;
-    top: 2rem;
-    left: 3rem;
+    width: 10.65rem;
+    top: 3rem;
+    left: -2px;
     display: none;
+    border-bottom: 2px solid $light-grey;
+    border-left: 2px solid $light-grey;
+    border-right: 2px solid $light-grey;
+    border-radius: 0 0 .5rem .5em;
+
+
     li {
-      font-size: .9rem;
       margin-bottom: .5rem;
       list-style: none;
-
+      padding-left: 3em;
     }
   }
 
@@ -34,4 +41,9 @@
   .rotate{
     transform: rotate(180deg);
   }
+}
+
+.borderBottom {
+  border-bottom: 2px solid $light-grey;
+  border-radius: .5em;
 }

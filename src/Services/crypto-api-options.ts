@@ -42,6 +42,9 @@ export const options: IOptionsAPI = {
     news: {
         method: 'GET',
         url: `${process.env.REACT_APP_NEWS_BASE_URL}/news`,
+        params :{
+            category: 'crypto'
+        },
         headers: {
             'X-RapidAPI-Key': `${process.env.REACT_APP_API_KEY}`,
             'X-RapidAPI-Host': 'crypto-news-live3.p.rapidapi.com'

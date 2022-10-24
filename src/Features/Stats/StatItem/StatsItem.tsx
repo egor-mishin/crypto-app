@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { IStatsProps } from './StatsItem.interface'
 import { Htag } from '../../index'
 import css from './StatsItem.module.scss'
-import { minifyNumber } from '../../../Utils'
+import { minifyNumber } from '../../../Utils/functions'
 
 const StatsItem: FC<IStatsProps> = ({statItem, title}): JSX.Element => {
     return (

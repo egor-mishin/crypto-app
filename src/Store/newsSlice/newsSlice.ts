@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { options } from '../../Services/crypto-api-options'
 import { INewsItem, INewsState } from './newsSlice.interface'
-import { DataForWidget } from '../../Utils'
+import { DataForWidget } from '../../Utils/functions'
 
 
 const initialState: INewsState = {

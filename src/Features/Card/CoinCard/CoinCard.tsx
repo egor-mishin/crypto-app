@@ -1,68 +1,18 @@
 import React, { FC } from 'react'
 import { ICoinCardProps } from './CoinCard.props'
 import css from './CoinCard.module.scss'
-import { minifyNumber } from '../../../Utils'
-import { Line } from 'react-chartjs-2'
-
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend,
-} from 'chart.js'
-import { Htag } from '../../index'
+import { minifyNumber } from '../../../Utils/functions'
 import cn from 'classnames'
+import { Button, Htag } from '../../index'
 import { Link } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
+import { IAuth } from '../../../Components/Header/Auth/Auth.interface'
 
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend,
-)
 
-const CoinCard: FC<ICoinCardProps> = ({ color, iconUrl, name, price, symbol, rank, change, marketCap, size= 'm' , uuid}): JSX.Element => {
-    const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
-    const data = {
-        labels: labels,
-        datasets: [
-            {
-                label: 'Price In USD',
-                data: [66, 66, 777, 888],
-                fill: true,
-                backgroundColor: '#0071bd',
-                borderColor: '#0071bd',
-            },
-        ],
-    }
 
-    const options = {
 
-        scales: {
-            x: {
-
-                display: true,
-                grid: {
-                    display: false,
-                },
-            },
-            y: {
-
-                display: true,
-                grid: {
-                    display: false,
-                },
-            },
-        },
-    }
-
+const CoinCard: FC<ICoinCardProps> = ({uuid, color, iconUrl, name, price, symbol, rank, change, marketCap, size= 'm'}): JSX.Element => {
+    const { isAuthenticated } = useAuth0<IAuth>()
     return (
         <div className={
             cn(css.card, {
@@ -80,10 +30,17 @@ const CoinCard: FC<ICoinCardProps> = ({ color, iconUrl, name, price, symbol, ran
                 <p className={css.item}>Price: <span>{minifyNumber(parseFloat(price), parseFloat(price) > 0.5 ? 3 : 5)}</span></p>
                 <p className={css.item}>Market Cap: <span>{minifyNumber(parseFloat(marketCap), parseFloat(marketCap) > 0.5 ? 3 : 5)}</span></p>
                 <p className={css.item}>Change:<span>{change} %</span></p>
-
             </div>
-            {/*<Line data={data} options={options} />*/}
-
+            <Link to={`/coins/${uuid}`}>
+                { isAuthenticated &&
+                    <Button kind={'outline'}>
+                        Add to favorite
+                    </Button>
+                }
+                <Button kind={'more'}>
+                    Coin details
+                </Button>
+            </Link>
         </div>
     )
 }

@@ -1,0 +1,43 @@
+@import "/src/Styles/variables";
+
+.button {
+  font-size: 1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: .5rem;
+  transition: .5s;
+}
+
+.regular {
+  background-color: $black-base;
+  color: $white-base;
+}
+
+.outline {
+  border: 2px solid $black-base;
+  border-radius: .5rem;
+  font-size: .8rem;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $black-base;
+    color: $white-base;
+  }
+}
+
+.login {
+
+}
+
+.auth {
+    font-size: .9rem;
+}
+
+.more {
+  @extend .outline;
+  float: right;
+
+
+
+}

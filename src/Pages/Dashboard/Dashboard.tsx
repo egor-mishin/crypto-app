@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { IDashboardProps } from './Dashboard.props'
-import { DataForWidget } from '../../Utils'
+import { DataForWidget } from '../../Utils/functions'
 import { Card, CoinCard, Htag, NewsCard } from '../../Features'
 import { ICoin } from '../../Store/coinsSlice/conisSlice.interface'
 import Widget from '../../Features/Widget/Widget'
