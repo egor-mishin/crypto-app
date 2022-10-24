@@ -1,5 +1,5 @@
 export interface ICoinState {
-    coinData: ICoin | {}
+    coinData: ICoin | null
     status: 'idle' | 'loading' | 'success' | 'failed'
     error: null
 }

@@ -11,17 +11,20 @@ import { useParams } from 'react-router-dom'
 const CoinDetails: FC<ICoinProps> = (): JSX.Element => {
 
     const dispatch = useAppDispatch()
+
     const {coinId} = useParams()
 
     useEffect(() => {
-        dispatch(getCoinData({coinId: coinId!, timePeriod: '7d'}))
+        if(coinId){
+        dispatch(getCoinData({coinId, timePeriod: '7d'}))
+        }
     }, [dispatch])
 
     const { coinData } = useAppSelector((state) => state.coinData)
 
     return (
         <>
-            <Htag tag={'h1'}>Coin details</Htag>
+            <Htag tag={'h1'}>{coinData?.name}</Htag>
             <div className={css.container}>
                 {<Line data={data} options={options}/>}
             </div>

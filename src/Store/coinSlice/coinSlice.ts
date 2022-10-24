@@ -6,7 +6,7 @@ import { ICoinState, ICoinResponse, ICoinDetailsParams } from './coinSlice.inter
 
 
 const initialState: ICoinState = {
-    coinData: {} ,
+    coinData: null ,
     status: 'idle',
     error: null,
 }
