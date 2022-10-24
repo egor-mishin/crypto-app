@@ -22,8 +22,14 @@ interface ICoinsRequestParams {
     offset: string
 }
 
-interface IGlobalStatsRequestParams {
+interface ICoinRequestParams {
     referenceCurrencyUuid:string
+    timePeriod: string
+}
+
+interface IGlobalStatsRequestParams {
+    referenceCurrencyUuid :string,
+
 }
 
 export interface IOptionsAPI {
@@ -31,5 +37,6 @@ export interface IOptionsAPI {
     markets: IOptions<ICoinsRequestParams>
     news: IOptions<any>
     globalStats: IOptions<IGlobalStatsRequestParams>
+    getCoinDetails: (coinId:string, timePeriod: string) => IOptions<ICoinRequestParams>
 }
 

@@ -59,5 +59,17 @@ export const options: IOptionsAPI = {
             'X-RapidAPI-Key': `${process.env.REACT_APP_API_KEY}`,
             'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
         }
+    },
+
+    getCoinDetails(coinId, timePeriod= '7d' ){
+       return {
+           method: 'GET',
+           url: `${process.env.REACT_APP_COINS_BASE_URL}/coin/${coinId}`,
+           params: {referenceCurrencyUuid: 'yhjMzLPhuIDl', timePeriod: `${timePeriod}`},
+           headers: {
+               'X-RapidAPI-Key': '295aa9c0f1msh437181de6d4ffc3p121624jsn85799d8d7344',
+               'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
+       }
+        }
     }
 }

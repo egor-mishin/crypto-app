@@ -32,7 +32,7 @@ function App() {
                 <Route path='profile' element={<Profile />} />
                 <Route path='coins' element={<Coins coins={coins} title={'Coins'}/>} />
                 <Route path={'coins'} >
-                    <Route path=':uuid' element={<CoinDetails  />} />
+                    <Route path=':coinId' element={<CoinDetails  />} />
                 </Route>
                 <Route path='/markets' element={<Markets markets={markets} />} />
                 <Route path='/news' element={<News />} />

@@ -4,7 +4,7 @@ export interface IButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTM
     children: ReactNode
     size?: 's' | 'm' | 'l'
     kind?: 'regular' | 'outline' | 'auth' | 'login' | 'more',
-    click?: (args: unknown) => void
+    click?: (args: any) => void
     params?: unknown
 }
 
