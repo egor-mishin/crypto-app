@@ -4,6 +4,7 @@ import marketsSlice from './marketsSlice/marketsSlice'
 import globalStatsSlice from './globalStatsSlice/globalStatsSlice'
 import { newsSlice } from './newsSlice/newsSlice'
 import coinSlice from './coinSlice/coinSlice'
+import appInitSlice from './appInitSlice/appInitSlice'
 
 
 const store = configureStore({
@@ -13,6 +14,7 @@ const store = configureStore({
         statsData: globalStatsSlice.reducer,
         newsData: newsSlice.reducer,
         coinData: coinSlice.reducer,
+        appInit: appInitSlice.reducer,
     },
 })
 

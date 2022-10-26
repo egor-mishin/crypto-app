@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { options } from '../../Services/crypto-api-options'
 import { ICoinsData, ICoinsState } from './conisSlice.interface'
+import { setErrors, setStatus } from '../appInitSlice/appInitSlice'
 
 
 
@@ -17,7 +18,8 @@ export const getCoinsData = createAsyncThunk('coinsData/getCoins', async (data, 
         return response.data
     } catch (error) {
         if (error instanceof Error) {
-            return thunkAPI.rejectWithValue(error.message)
+            thunkAPI.dispatch(setStatus('failed'))
+            thunkAPI.dispatch(setErrors(error.message))
         }
     }
 })
@@ -32,12 +34,8 @@ export const coinsSlice = createSlice({
                 state.status = 'loading'
             })
             .addCase(getCoinsData.fulfilled, (state: ICoinsState, action: PayloadAction<ICoinsData>) => {
-                state.status = 'success'
+                setStatus('success')
                 state.coins = action.payload.data.coins
-            })
-            .addCase(getCoinsData.rejected, (state: ICoinsState, action: PayloadAction<any>) => {
-                state.status = 'failed'
-                state.error = action.payload
             })
     },
 })
