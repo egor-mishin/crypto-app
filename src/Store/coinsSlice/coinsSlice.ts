@@ -1,25 +1,26 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
 import { options } from '../../Services/crypto-api-options'
-import { ICoinsData, ICoinsState } from './conisSlice.interface'
 import { setErrors, setStatus } from '../appInitSlice/appInitSlice'
-
+import { ICoinsData, ICoinsState } from './conisSlice.interface'
 
 
 const initialState: ICoinsState = {
     coins: [],
+    favCoins: [],
     status: 'idle',
-    error: null,
+    errorCode: null,
 }
 
 export const getCoinsData = createAsyncThunk('coinsData/getCoins', async (data, thunkAPI) => {
     try {
-       const  response = await axios.request(options.coins)
+        const response = await axios.request(options.coins)
         return response.data
     } catch (error) {
-        if (error instanceof Error) {
+        if (error instanceof AxiosError) {
             thunkAPI.dispatch(setStatus('failed'))
-            thunkAPI.dispatch(setErrors(error.message))
+            thunkAPI.dispatch(setErrors(error.response?.status))
+
         }
     }
 })
@@ -27,7 +28,12 @@ export const getCoinsData = createAsyncThunk('coinsData/getCoins', async (data, 
 export const coinsSlice = createSlice({
     name: 'coinsData',
     initialState,
-    reducers: {},
+    reducers: {
+        addToFavCoins: (state: ICoinsState, action: PayloadAction<string>) => {
+            const favCoin = state.coins?.find(c => c.uuid === action.payload)
+            state.favCoins = favCoin ? [...state.favCoins, favCoin] : state.favCoins
+        },
+    },
     extraReducers(builder) {
         builder
             .addCase(getCoinsData.pending, (state: ICoinsState) => {
@@ -40,5 +46,6 @@ export const coinsSlice = createSlice({
     },
 })
 
+export const { addToFavCoins } = coinsSlice.actions
 
 export default coinsSlice.reducer

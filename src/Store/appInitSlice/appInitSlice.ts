@@ -8,7 +8,7 @@ import { getNewsData } from '../newsSlice/newsSlice'
 
 const initialState: IAppInitState = {
     appInitStatus: 'idle',
-    errors: [],
+    errorCode: null,
 }
 
 export const appInit = createAsyncThunk('appInit/appInit', async (data, thunkAPI) => {
@@ -31,8 +31,8 @@ export const appInitSlice = createSlice({
     name: 'appInit',
     initialState,
     reducers: {
-        setErrors: (state, action: PayloadAction<string>) => {
-            state.errors = [...state.errors, action.payload]
+        setErrors: (state, action) => {
+            state.errorCode = action.payload
         },
 
         setStatus: (state, action) => {
@@ -46,7 +46,7 @@ export const appInitSlice = createSlice({
                 state.appInitStatus = 'loading'
             })
             .addCase(appInit.fulfilled, (state: IAppInitState) => {
-                if (state.errors.length === 0) {
+                if (!state.errorCode) {
                     state.appInitStatus = 'success'
                 }
             })

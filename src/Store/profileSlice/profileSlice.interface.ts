@@ -1,17 +1,7 @@
-export interface ICoinsState {
-    coins: ICoin[] | []
-    favCoins: ICoin[] | []
+export interface IProfileState {
+    userInfo: unknown
     status: 'idle' | 'loading' | 'success' | 'failed'
     errorCode: null
-}
-
-export interface IStats {
-    total: number;
-    totalCoins: number;
-    totalMarkets: number;
-    totalExchanges: number;
-    totalMarketCap: string;
-    total24hVolume: string;
 }
 
 export interface ICoin {
@@ -28,12 +18,11 @@ export interface ICoin {
     rank: number;
     sparkline: string[];
     coinrankingUrl: string;
-    _24hVolume: string,
+    _24hVolume: string
 }
 
 
 export interface IData {
-    stats: IStats;
     coins: ICoin[];
 }
 

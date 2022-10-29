@@ -5,7 +5,8 @@ import { useAppDispatch, useAppSelector } from './Hooks/rtk-hooks'
 import { useEffect } from 'react'
 import CoinDetails from './Pages/Coins/CoinDetails/CoinDetails'
 import { appInit } from './Store/appInitSlice/appInitSlice'
-import { retry } from '@reduxjs/toolkit/query'
+import Loader from './Features/Loader/Loader'
+import Error from './Features/Error/Error'
 
 function App() {
     const dispatch = useAppDispatch()
@@ -14,26 +15,24 @@ function App() {
         dispatch(appInit())
     }, [dispatch])
 
-    const { coins } = useAppSelector((state) => state.coinsData)
+    const { coins, favCoins } = useAppSelector((state) => state.coinsData)
     const { markets } = useAppSelector((state) => state.marketsData)
     const { stats } = useAppSelector((state) => state.statsData)
     const { news } = useAppSelector((state) => state.newsData)
-    const { appInitStatus, errors } = useAppSelector((state) => state.appInit)
-
+    const { appInitStatus, errorCode } = useAppSelector((state) => state.appInit)
 
     if (appInitStatus === 'loading') {
-        return <>Loading</>
+        return <Loader />
     }
-
     if (appInitStatus === 'failed') {
-        return <>{errors[0]}</>
+      return  <Error  errorCode={errorCode}/>
     }
         return <div className='App'>
             <Layout>
                 <Routes>
                     <Route path='/'
                            element={<Dashboard coins={coins} stats={stats} title={'Dashboard'} news={news} />} />
-                    <Route path='profile' element={<Profile />} />
+                    <Route path='profile' element={<Profile coinsForWidget={favCoins}/>} />
                     <Route path='coins' element={<Coins coins={coins} title={'Coins'} />} />
                     <Route path={'coins'}>
                         <Route path=':coinId' element={<CoinDetails />} />
